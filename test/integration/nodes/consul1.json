@@ -1,0 +1,15 @@
+{
+  "name": "consul1",
+  "chef_type": "node",
+  "json_class": "Chef::Node",
+  "chef_environment": "_default",
+  "run_list": [],
+  "normal": {
+    "tags": [
+      "consul-cluster"
+    ]
+  },
+  "automatic": {
+    "ipaddress": "10.0.0.15"
+  }
+}
