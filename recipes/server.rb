@@ -9,7 +9,8 @@ agent_opts = {
   opts: {
     data_dir: "/opt/consul",
     server: true,
-    bootstrap_expect: node['consul']['server']['bootstrap_expect']
+    bootstrap_expect: node['consul']['server']['bootstrap_expect'],
+    bind_addr: node.ipaddress
   }
 }
 

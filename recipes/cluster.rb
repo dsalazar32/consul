@@ -19,9 +19,7 @@ nodes = if Chef::Config[:solo] && bindable_ips.empty?
           results.map(&:ipaddress) << node_ipaddress
         end
 
-if auto_cluster && bootstrap_expect == nodes.length
-  cmd = Mixlib::Shellout.new("consul join #{nodes.join(',')}", user: "root")
-  cmd.run_command
-  Chef::Log.info(cmd.stdout)
-  Chef::Log.info(cmd.stderr) if cmd.stderr
+execute "cluster_nodes" do
+  command "consul join #{nodes.join(', ')}"
+  only_if { auto_cluster && bootstrap_expect == nodes.length }
 end
