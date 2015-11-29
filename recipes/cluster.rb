@@ -21,5 +21,6 @@ nodes = if Chef::Config[:solo] && bindable_ips.empty?
 
 execute "cluster_nodes" do
   command "consul join #{nodes.join(' ')}"
+  user    "root"
   only_if { auto_cluster && bootstrap_expect == nodes.length }
 end
