@@ -1,6 +1,8 @@
 ---
 driver:
   name: vagrant
+  network:
+    - ['private_network', {ip: "172.168.21.5"}]
 
 provisioner:
   name: chef_zero
@@ -12,5 +14,14 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[consul::cluster]
+      - recipe[consul::agent]
     attributes:
+      consul:
+        node:
+          name: "consul-agent"
+          bind_addr: "172.168.21.5"
+        server:
+          bindable_ips: 
+            - "172.168.100.2"
+            - "172.168.100.3"
+            - "172.168.100.4"

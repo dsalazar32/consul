@@ -71,7 +71,7 @@ Vagrant.configure(2) do |config|
   1.upto(3).each do |n|
     config.vm.define "consul#{n}" do |consul|
       consul.vm.hostname = "consul#{n}"
-      consul.vm.network "private_network", ip: "172.168.21.#{n+1}"
+      consul.vm.network "private_network", ip: "172.168.100.#{n+1}"
       consul.vm.provision "chef_client" do |chef|
         chef.node_name              = "consul#{n}"
         chef.chef_server_url        = ENV["CHEF_SERVER_URL"]
