@@ -11,6 +11,7 @@ default['consul']['config_dir']     = "/etc/consul.d"
 # Node specific configurations
 default['consul']['node']['name']               = nil
 default['consul']['node']['bind_addr']          = nil
+default['consul']['node']['datacenter']         = nil
 
 # Server specific configurations
 default['consul']['server']['cluster_tag']      = "consul-cluster"
