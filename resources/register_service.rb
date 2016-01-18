@@ -1,6 +1,6 @@
 resource_name :consul_register_service
 
-property :service_name, kindf_of: String, name_property: true, required: true
+property :service_name, kind_of: String, name_property: true, required: true
 property :confgdir, kind_of: String, default: node['consul']['config_dir']
 property :tags, kind_of: Array, default: nil
 property :address, kind_of: String, default: nil 
